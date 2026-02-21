@@ -1,0 +1,1 @@
+Kubernetes sample. Pods, Deployments, Services are fundamental concepts. This sample will help test retrieval.

@@ -1,0 +1,2 @@
+Python tutorial sample. This file contains basic Python concepts such as functions, classes, and modules.
+We use this document to test text extraction and RAG chunking for the project.
