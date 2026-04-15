@@ -1,6 +1,7 @@
 import json
 import faiss
 from sentence_transformers import SentenceTransformer
+from app.retrieve.reranker import rerank
 
 EMBED_MODEL = "all-MiniLM-L6-v2"
 _model = SentenceTransformer(EMBED_MODEL)
@@ -15,11 +16,12 @@ class Retriever:
             for line in f:
                 self.chunks.append(json.loads(line)["text"])
 
-    def search(self, query: str, top_k: int = 5):
+    def search(self, query: str, top_k: int = 5, rerank_top_k: int = 0):
         q_emb = _model.encode([query], convert_to_numpy=True)
         faiss.normalize_L2(q_emb)
 
         D, I = self.index.search(q_emb, top_k)
+
         results = []
         for score, idx in zip(D[0], I[0]):
             results.append({
@@ -29,4 +31,10 @@ class Retriever:
                 "chunk_id": self.metas[idx]["chunk_id"],
                 "text": self.chunks[idx][:800]
             })
+
+        if rerank_top_k and rerank_top_k > 1:
+            head = rerank(query, results[:rerank_top_k])
+            tail = results[rerank_top_k:]
+            results = head + tail
+
         return results

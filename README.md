@@ -2,7 +2,7 @@
 
 A full-stack AI system for benchmarking Retrieval-Augmented Generation (RAG) pipelines.
 
-## 🚀 Problem
+Problem
 
 Most RAG systems lack standardized evaluation, reproducibility, and performance benchmarking.
 
@@ -16,7 +16,7 @@ This platform enables:
 
 ---
 
-## 🧠 Architecture
+Architecture
 
 1. Document Ingestion
 2. Chunking (configurable size & overlap)
@@ -29,7 +29,7 @@ This platform enables:
 
 ---
 
-## 📊 Metrics Implemented
+Metrics Implemented
 
 - Precision@1
 - Precision@3
@@ -41,7 +41,7 @@ This platform enables:
 
 ---
 
-## 🖥️ Dashboard
+Dashboard
 
 Run:
 

@@ -21,7 +21,7 @@ def reciprocal_rank(retrieved_sources, expected_source):
             return 1.0 / i
     return 0.0
 
-def evaluate(run_dir: str, top_k: int = 5, k_values=(1,3,5)):
+def evaluate(run_dir: str, top_k: int = 5, rerank_top_k: int = 0, k_values=(1, 3, 5)):
     index_file = f"{run_dir}/faiss.index"
     meta_file = f"{run_dir}/chunks_meta.json"
     chunk_file = f"{run_dir}/chunks.jsonl"
@@ -35,7 +35,7 @@ def evaluate(run_dir: str, top_k: int = 5, k_values=(1,3,5)):
         q = item["question"]
         expected = item["expected_source"]
 
-        results = retriever.search(q, top_k=top_k)
+        results = retriever.search(q, top_k=top_k, rerank_top_k=rerank_top_k)
         retrieved_sources = [r["source"] for r in results]
 
         for k in k_values:
@@ -45,17 +45,15 @@ def evaluate(run_dir: str, top_k: int = 5, k_values=(1,3,5)):
     print("\n=== Retrieval Evaluation ===")
     print(f"Run: {run_dir}")
     print(f"Questions: {len(eval_items)}")
+    print(f"Rerank top_k: {rerank_top_k}")
     for k in k_values:
         print(f"Precision@{k}: {sum(scores[f'P@{k}'])/len(scores[f'P@{k}']):.3f}")
     print(f"MRR: {sum(scores['MRR'])/len(scores['MRR']):.3f}")
 
-    return {
-        "Questions": len(eval_items),
-        **{k: sum(v)/len(v) for k, v in scores.items()}
-    }
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--run_dir", default="experiments", help="Folder containing chunks.jsonl, faiss.index, chunks_meta.json")
+    parser.add_argument("--run_dir", default="experiments")
+    parser.add_argument("--rerank_top_k", type=int, default=0)
     args = parser.parse_args()
-    evaluate(args.run_dir)
+
+    evaluate(args.run_dir, rerank_top_k=args.rerank_top_k)
