@@ -41,6 +41,15 @@ Metrics Implemented
 
 ---
 
+## Key Results
+
+- Baseline Precision@1: 0.90
+- Reranked Precision@1: 1.00
+- Baseline MRR: 0.95
+- Reranked MRR: 1.00
+
+Adding a cross-encoder reranker improved top-1 retrieval quality and ranking performance.
+
 Dashboard
 
 Run:
