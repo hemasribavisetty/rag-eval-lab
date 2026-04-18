@@ -5,5 +5,11 @@ __pycache__/
 *.db
 *.log
 .env
+
+# Root experiments folder
 experiments/*
 !experiments/results.jsonl
+
+# App experiments folder
+app/experiments/*
+!app/experiments/run_experiment.py
