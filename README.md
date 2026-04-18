@@ -88,14 +88,12 @@ Implemented cross-encoder reranking improving Precision@1 from 0.60 → 1.00
 Developed Streamlit dashboard for experiment visualization
 Added grounding-based hallucination scoring for answer reliability
 
-Future Work:
+## 🚀 Future Work
 
-LLM-based answer generation with stronger grounding
-Advanced hallucination detection (ML-based)
-Multi-dataset benchmarking
-Cloud deployment (Streamlit Cloud / AWS)
-
-
+- LLM-based answer generation with stronger grounding
+- Advanced hallucination detection (ML-based)
+- Multi-dataset benchmarking
+- Cloud deployment (Streamlit Cloud / AWS)
 
 ## 📸 Dashboard Preview
 
