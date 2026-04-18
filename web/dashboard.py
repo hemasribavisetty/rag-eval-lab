@@ -13,7 +13,8 @@ import streamlit as st
 from app.generate.generate_answer import generate_answer
 from app.eval.hallucination import hallucination_score, hallucination_label
 
-RESULTS_FILE = Path("experiments/results.jsonl")
+ROOT_DIR = Path(__file__).resolve().parent.parent
+RESULTS_FILE = ROOT_DIR / "experiments" / "results.jsonl"
 
 st.set_page_config(page_title="RAG Eval Lab Dashboard", layout="wide")
 
@@ -41,9 +42,10 @@ if not RESULTS_FILE.exists():
     import subprocess
 
     result = subprocess.run(
-        ["python", "app/experiments/run_experiment.py"],
+        ["python", str(ROOT_DIR / "app" / "experiments" / "run_experiment.py")],
         capture_output=True,
-        text=True
+        text=True,
+        cwd=str(ROOT_DIR)
     )
 
     st.text("STDOUT:")
