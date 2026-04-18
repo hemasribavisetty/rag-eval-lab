@@ -29,7 +29,8 @@ This platform enables:
 
 ---
 
-System Architecture
+System Architecture:
+
 Documents → Ingestion → Chunking → Embedding → FAISS Index
 → Retrieval → Reranking → Evaluation → Dashboard
 
