@@ -39,9 +39,20 @@ if not RESULTS_FILE.exists():
     st.warning("No results found. Running experiments...")
 
     import subprocess
-    subprocess.run(["python", "app/experiments/run_experiment.py"])
 
-    if not RESULTS_FILE.exists():
+    result = subprocess.run(
+        ["python", "app/experiments/run_experiment.py"],
+        capture_output=True,
+        text=True
+    )
+
+    st.text("STDOUT:")
+    st.code(result.stdout or "(no stdout)")
+
+    st.text("STDERR:")
+    st.code(result.stderr or "(no stderr)")
+
+    if result.returncode != 0 or not RESULTS_FILE.exists():
         st.error("Failed to generate results.")
         st.stop()
 
