@@ -1,3 +1,7 @@
+## Live Demo
+
+https://rag-eval-lab-030700.streamlit.app/
+
 RAG Optimization & Evaluation Platform
 
 A full-stack AI system for benchmarking and optimizing Retrieval-Augmented Generation (RAG) pipelines.
