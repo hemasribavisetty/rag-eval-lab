@@ -97,4 +97,4 @@ Cloud deployment (Streamlit Cloud / AWS)
 
 Dashboard Preview
 
-![Dashboard](./assets/dashboard.png)
+<img src="./assets/dashboard.png" alt="Dashboard Preview" width="900"/>
