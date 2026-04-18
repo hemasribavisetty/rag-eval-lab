@@ -97,6 +97,7 @@ Cloud deployment (Streamlit Cloud / AWS)
 
 
 
-## Dashboard Preview
+## 📸 Dashboard Preview
 
 <img src="./assets/dashboard.png" alt="Dashboard Preview" width="900"/>
+
