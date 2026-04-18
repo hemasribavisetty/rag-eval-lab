@@ -65,37 +65,37 @@ Run locally:
 ```bash
 streamlit run web/dashboard.py
 
-Features:
+## Features:
 
-Configuration comparison (chunk size, overlap)
-Retrieval quality vs latency visualization
-Reranking impact analysis
-Best configuration recommendation
-Sample query + grounding / hallucination analysis
+- Configuration comparison (chunk size, overlap)
+- Retrieval quality vs latency visualization
+- Reranking impact analysis
+- Best configuration recommendation
+- Sample query + grounding / hallucination analysis
 
-How to Run:
+## How to Run:
 
-python app/ingest/ingest.py
-python app/embed/build_index.py
-python -m app.eval.eval_retrieval
-python app/experiments/run_experiment.py
+- python app/ingest/ingest.py
+- python app/embed/build_index.py
+- python -m app.eval.eval_retrieval
+- python app/experiments/run_experiment.py
 
-Project Highlights:
+## Project Highlights:
 
-Built a configurable RAG pipeline using FAISS vector search
-Designed evaluation framework using Precision@K and MRR
-Implemented cross-encoder reranking improving Precision@1 from 0.60 → 1.00
-Developed Streamlit dashboard for experiment visualization
-Added grounding-based hallucination scoring for answer reliability
+- Built a configurable RAG pipeline using FAISS vector search
+- Designed evaluation framework using Precision@K and MRR
+- Implemented cross-encoder reranking improving Precision@1 from 0.60 → 1.00
+- Developed Streamlit dashboard for experiment visualization
+- Added grounding-based hallucination scoring for answer reliability
 
-## 🚀 Future Work
+## Future Work
 
 - LLM-based answer generation with stronger grounding
 - Advanced hallucination detection (ML-based)
 - Multi-dataset benchmarking
 - Cloud deployment (Streamlit Cloud / AWS)
 
-## 📸 Dashboard Preview
+## Dashboard Preview
 
 <img src="./assets/dashboard.png" alt="Dashboard Preview" width="900"/>
 
