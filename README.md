@@ -62,7 +62,6 @@ Dashboard
 
 Run locally:
 
-```bash
 streamlit run web/dashboard.py
 
 ## Features:
