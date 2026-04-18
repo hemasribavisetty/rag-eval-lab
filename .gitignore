@@ -5,5 +5,5 @@ __pycache__/
 *.db
 *.log
 .env
-experiments/*
-!experiments/results.jsonl
+app/experiments/*
+!app/experiments/run_experiment.py
