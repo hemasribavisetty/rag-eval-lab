@@ -95,6 +95,6 @@ Advanced hallucination detection (ML-based)
 Multi-dataset benchmarking
 Cloud deployment (Streamlit Cloud / AWS)
 
-Dashboard Preview:
+Dashboard Preview
 
-![Dashboard](./assets/Dashboard.png)
+![Dashboard](./assets/dashboard.png)
