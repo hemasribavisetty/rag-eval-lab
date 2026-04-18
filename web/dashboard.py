@@ -36,8 +36,14 @@ Built as a Master's AI Systems Project.
 st.divider()
 
 if not RESULTS_FILE.exists():
-    st.error("No results found. Run: python app/experiments/run_experiment.py")
-    st.stop()
+    st.warning("No results found. Running experiments...")
+
+    import subprocess
+    subprocess.run(["python", "app/experiments/run_experiment.py"])
+
+    if not RESULTS_FILE.exists():
+        st.error("Failed to generate results.")
+        st.stop()
 
 rows = []
 with open(RESULTS_FILE, "r", encoding="utf-8") as f:
